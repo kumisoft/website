@@ -20,8 +20,9 @@ export default function PrivacyPolicy() {
       <ul>
         <li>
           <strong>Information you send us.</strong> When you email us or use
-          the contact form (which opens your own email app), we receive your
-          name, email address and anything you include in your message.
+          our contact form, we receive your name, email address, project type
+          and anything you include in your message. Contact form submissions
+          are delivered to us by our form-processing provider, Web3Forms.
         </li>
         <li>
           <strong>Technical information.</strong> Our hosting provider
@@ -45,8 +46,8 @@ export default function PrivacyPolicy() {
       <h2>Sharing</h2>
       <p>
         We share information only with service providers that help us run our
-        business (such as website hosting and email), when required by law, or
-        with your consent.
+        business (such as website hosting, email and contact form delivery),
+        when required by law, or with your consent.
       </p>
 
       <h2>Data retention</h2>
