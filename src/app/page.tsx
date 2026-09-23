@@ -305,8 +305,11 @@ export default function Home() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
-                  Consult Project
+                <Button
+                  asChild
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white"
+                >
+                  <Link href="#contact">Consult Project</Link>
                 </Button>
               </CardContent>
             </Card>
