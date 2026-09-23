@@ -21,6 +21,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
+import { MobileNav } from "@/components/mobile-nav";
 import { company } from "@/lib/company";
 
 export default function Home() {
@@ -61,9 +62,15 @@ export default function Home() {
               Contact
             </Link>
           </nav>
-          <Button asChild className="bg-orange-600 hover:bg-orange-700 text-white">
-            <Link href="#contact">Contact Us</Link>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              asChild
+              className="hidden sm:inline-flex bg-orange-600 hover:bg-orange-700 text-white"
+            >
+              <Link href="#contact">Contact Us</Link>
+            </Button>
+            <MobileNav />
+          </div>
         </div>
       </header>
 

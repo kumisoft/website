@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { company } from "@/lib/company";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,10 +13,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const description =
+  "Designing the digital future: experts in web creation and custom software development.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(company.url),
   title: "Kumisoft | Web & Software Development",
-  description:
-    "Designing the digital future: experts in web creation and custom software development.",
+  description,
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: company.legalName,
+    title: "Kumisoft | Web & Software Development",
+    description,
+  },
 };
 
 export default function RootLayout({

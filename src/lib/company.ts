@@ -2,6 +2,7 @@ export const company = {
   name: "Kumisoft",
   legalName: "Kumisoft LLC",
   email: "contact@kumisoft.com",
+  url: "https://kumisoft.com",
   address: {
     street: "1309 Coffeen Avenue, STE 1200",
     city: "Sheridan",
