@@ -14,13 +14,14 @@ import {
   Database,
   Users,
   Mail,
-  Phone,
   MapPin,
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { ContactForm } from "@/components/contact-form";
+import { company } from "@/lib/company";
 
 export default function Home() {
   return (
@@ -48,10 +49,10 @@ export default function Home() {
               Services
             </Link>
             <Link
-              href="#team"
+              href="#about"
               className="text-sm font-medium hover:text-orange-400 transition-colors"
             >
-              Team
+              About
             </Link>
             <Link
               href="#contact"
@@ -313,79 +314,71 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section id="team" className="py-20">
+      {/* About Section */}
+      <section id="about" className="py-20">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center space-y-4 mb-16">
             <Badge
               variant="secondary"
               className="bg-orange-600/20 text-orange-400 border-orange-600/30"
             >
-              Our Team
+              About Us
             </Badge>
             <h2 className="text-3xl lg:text-5xl font-bold">
-              Technology{" "}
+              About{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
-                Experts
+                Kumisoft
               </span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              A multidisciplinary team of developers, designers and consultants
-              committed to excellence.
+              {company.legalName} is a software development company based in
+              Sheridan, Wyoming. We design, build and maintain websites, custom
+              software and mobile applications for businesses of every size.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-slate-800/50 border-slate-700 text-center">
               <CardHeader>
-                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white">
-                  JD
+                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <Code className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-white">John Developer</CardTitle>
-                <CardDescription className="text-slate-400">
-                  Full Stack Developer
-                </CardDescription>
+                <CardTitle className="text-white">Engineering First</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-300 text-sm">
-                  Specialist in React, Node.js and scalable architectures with
-                  more than 5 years of experience.
+                  Clean, maintainable code built on modern, proven technologies
+                  that scale with your business.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="bg-slate-800/50 border-slate-700 text-center">
               <CardHeader>
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white">
-                  MD
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <Users className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-white">Mary Designer</CardTitle>
-                <CardDescription className="text-slate-400">
-                  UX/UI Designer
-                </CardDescription>
+                <CardTitle className="text-white">Client Partnership</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-300 text-sm">
-                  Expert in user-centered design and memorable digital
-                  experiences.
+                  We work closely with you from requirements to launch, with
+                  clear communication at every step.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="bg-slate-800/50 border-slate-700 text-center">
               <CardHeader>
-                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center text-2xl font-bold text-white">
-                  CA
+                <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <CheckCircle className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-white">Carl Architect</CardTitle>
-                <CardDescription className="text-slate-400">
-                  Software Architect
-                </CardDescription>
+                <CardTitle className="text-white">Long-Term Support</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-slate-300 text-sm">
-                  Specialist in software architectures and complex enterprise
-                  solutions.
+                  Ongoing maintenance, monitoring and improvements after your
+                  product goes live.
                 </p>
               </CardContent>
             </Card>
@@ -424,17 +417,12 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white">Email</h3>
-                    <p className="text-slate-300">contact@kumisoft.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">Phone</h3>
-                    <p className="text-slate-300">+1 (555) 123-4567</p>
+                    <a
+                      href={`mailto:${company.email}`}
+                      className="text-slate-300 hover:text-orange-400 transition-colors"
+                    >
+                      {company.email}
+                    </a>
                   </div>
                 </div>
 
@@ -444,9 +432,16 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white">
-                      Location
+                      Address
                     </h3>
-                    <p className="text-slate-300">City, Country</p>
+                    <address className="text-slate-300 not-italic">
+                      {company.legalName}
+                      <br />
+                      {company.address.street}
+                      <br />
+                      {company.address.city}, {company.address.region}{" "}
+                      {company.address.postalCode}
+                    </address>
                   </div>
                 </div>
               </div>
@@ -486,55 +481,8 @@ export default function Home() {
                   hours
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-slate-300 mb-2 block">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-slate-300 mb-2 block">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-slate-300 mb-2 block">
-                    Project Type
-                  </label>
-                  <select className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
-                    <option>Web Development</option>
-                    <option>Custom Software</option>
-                    <option>Mobile App</option>
-                    <option>IT Consulting</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-slate-300 mb-2 block">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-md text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                    placeholder="Tell us about your project..."
-                  ></textarea>
-                </div>
-                <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
-                  Send Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+              <CardContent>
+                <ContactForm />
               </CardContent>
             </Card>
           </div>
@@ -563,7 +511,7 @@ export default function Home() {
               <ul className="space-y-2 text-slate-400 text-sm">
                 <li>
                   <Link
-                    href="#"
+                    href="#services"
                     className="hover:text-orange-400 transition-colors"
                   >
                     Web Development
@@ -571,7 +519,7 @@ export default function Home() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="#services"
                     className="hover:text-orange-400 transition-colors"
                   >
                     Custom Software
@@ -579,7 +527,7 @@ export default function Home() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="#services"
                     className="hover:text-orange-400 transition-colors"
                   >
                     Mobile Apps
@@ -587,7 +535,7 @@ export default function Home() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="#services"
                     className="hover:text-orange-400 transition-colors"
                   >
                     IT Consulting
@@ -601,7 +549,7 @@ export default function Home() {
               <ul className="space-y-2 text-slate-400 text-sm">
                 <li>
                   <Link
-                    href="#"
+                    href="#about"
                     className="hover:text-orange-400 transition-colors"
                   >
                     About Us
@@ -609,26 +557,26 @@ export default function Home() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="#contact"
                     className="hover:text-orange-400 transition-colors"
                   >
-                    Team
+                    Contact
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/privacy"
                     className="hover:text-orange-400 transition-colors"
                   >
-                    Projects
+                    Privacy Policy
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/terms"
                     className="hover:text-orange-400 transition-colors"
                   >
-                    Blog
+                    Terms of Service
                   </Link>
                 </li>
               </ul>
@@ -637,26 +585,36 @@ export default function Home() {
             <div>
               <h3 className="font-semibold text-white mb-4">Contact</h3>
               <ul className="space-y-2 text-slate-400 text-sm">
-                <li>contact@kumisoft.com</li>
-                <li>+1 (555) 123-4567</li>
-                <li>City, Country</li>
+                <li>
+                  <a
+                    href={`mailto:${company.email}`}
+                    className="hover:text-orange-400 transition-colors"
+                  >
+                    {company.email}
+                  </a>
+                </li>
+                <li>{company.address.street}</li>
+                <li>
+                  {company.address.city}, {company.address.region}{" "}
+                  {company.address.postalCode}
+                </li>
               </ul>
             </div>
           </div>
 
           <div className="border-t border-slate-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-slate-400 text-sm">
-              © {new Date().getFullYear()} Kumisoft. All rights reserved.
+              © {new Date().getFullYear()} {company.legalName}. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
-                href="#"
+                href="/privacy"
                 className="text-slate-400 hover:text-orange-400 transition-colors text-sm"
               >
                 Privacy Policy
               </Link>
               <Link
-                href="#"
+                href="/terms"
                 className="text-slate-400 hover:text-orange-400 transition-colors text-sm"
               >
                 Terms of Service
